@@ -1,0 +1,36 @@
+<odoo>
+    <record id="view_health_form" model="ir.ui.view">
+        <field name="name">health.form</field>
+        <field name="model">education.health</field>
+        <field name="arch" type="xml">
+            <form string="Health Record">
+                <sheet>
+                    <group>
+                        <field name="student_id"/>
+                        <field name="description"/>
+                        <field name="date"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_health_tree" model="ir.ui.view">
+        <field name="name">health.tree</field>
+        <field name="model">education.health</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="student_id"/>
+                <field name="date"/>
+            </tree>
+        </field>
+    </record>
+
+    <menuitem id="menu_health" name="Health" parent="menu_student_root" sequence="100" action="action_health"/>
+
+    <record id="action_health" model="ir.actions.act_window">
+        <field name="name">Health Records</field>
+        <field name="res_model">education.health</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>
