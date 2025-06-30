@@ -1,0 +1,108 @@
+<odoo>
+    <record id="view_timetable_room_form" model="ir.ui.view">
+        <field name="name">timetable.room.form</field>
+        <field name="model">education.timetable.room</field>
+        <field name="arch" type="xml">
+            <form string="Room">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="capacity"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_timetable_room_tree" model="ir.ui.view">
+        <field name="name">timetable.room.tree</field>
+        <field name="model">education.timetable.room</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="capacity"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_timetable_slot_form" model="ir.ui.view">
+        <field name="name">timetable.slot.form</field>
+        <field name="model">education.timetable.slot</field>
+        <field name="arch" type="xml">
+            <form string="Slot">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="start_time"/>
+                        <field name="end_time"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_timetable_slot_tree" model="ir.ui.view">
+        <field name="name">timetable.slot.tree</field>
+        <field name="model">education.timetable.slot</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="start_time"/>
+                <field name="end_time"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_timetable_schedule_form" model="ir.ui.view">
+        <field name="name">timetable.schedule.form</field>
+        <field name="model">education.timetable.schedule</field>
+        <field name="arch" type="xml">
+            <form string="Schedule">
+                <sheet>
+                    <group>
+                        <field name="room_id"/>
+                        <field name="slot_id"/>
+                        <field name="course_id"/>
+                        <field name="teacher_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_timetable_schedule_tree" model="ir.ui.view">
+        <field name="name">timetable.schedule.tree</field>
+        <field name="model">education.timetable.schedule</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="room_id"/>
+                <field name="slot_id"/>
+                <field name="course_id"/>
+                <field name="teacher_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <menuitem id="menu_timetable_root" name="Timetable" parent="menu_student_root" sequence="30"/>
+    <menuitem id="menu_timetable_room" name="Rooms" parent="menu_timetable_root" action="action_timetable_room"/>
+    <menuitem id="menu_timetable_slot" name="Slots" parent="menu_timetable_root" action="action_timetable_slot"/>
+    <menuitem id="menu_timetable_schedule" name="Schedules" parent="menu_timetable_root" action="action_timetable_schedule"/>
+
+    <record id="action_timetable_room" model="ir.actions.act_window">
+        <field name="name">Rooms</field>
+        <field name="res_model">education.timetable.room</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_timetable_slot" model="ir.actions.act_window">
+        <field name="name">Slots</field>
+        <field name="res_model">education.timetable.slot</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_timetable_schedule" model="ir.actions.act_window">
+        <field name="name">Schedules</field>
+        <field name="res_model">education.timetable.schedule</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>
