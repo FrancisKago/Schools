@@ -1,0 +1,38 @@
+<odoo>
+    <record id="view_evaluation_form" model="ir.ui.view">
+        <field name="name">evaluation.form</field>
+        <field name="model">education.evaluation</field>
+        <field name="arch" type="xml">
+            <form string="Teacher Evaluation">
+                <sheet>
+                    <group>
+                        <field name="teacher_id"/>
+                        <field name="date"/>
+                        <field name="rating"/>
+                        <field name="notes"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_evaluation_tree" model="ir.ui.view">
+        <field name="name">evaluation.tree</field>
+        <field name="model">education.evaluation</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="teacher_id"/>
+                <field name="date"/>
+                <field name="rating"/>
+            </tree>
+        </field>
+    </record>
+
+    <menuitem id="menu_evaluation" name="Evaluations" parent="menu_student_root" sequence="140" action="action_evaluation"/>
+
+    <record id="action_evaluation" model="ir.actions.act_window">
+        <field name="name">Teacher Evaluations</field>
+        <field name="res_model">education.evaluation</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>
