@@ -1,0 +1,73 @@
+<odoo>
+    <record id="view_hostel_room_form" model="ir.ui.view">
+        <field name="name">hostel.room.form</field>
+        <field name="model">education.hostel.room</field>
+        <field name="arch" type="xml">
+            <form string="Room">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="capacity"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_hostel_room_tree" model="ir.ui.view">
+        <field name="name">hostel.room.tree</field>
+        <field name="model">education.hostel.room</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="capacity"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_hostel_assignment_form" model="ir.ui.view">
+        <field name="name">hostel.assignment.form</field>
+        <field name="model">education.hostel.assignment</field>
+        <field name="arch" type="xml">
+            <form string="Hostel Assignment">
+                <sheet>
+                    <group>
+                        <field name="student_id"/>
+                        <field name="room_id"/>
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_hostel_assignment_tree" model="ir.ui.view">
+        <field name="name">hostel.assignment.tree</field>
+        <field name="model">education.hostel.assignment</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="student_id"/>
+                <field name="room_id"/>
+                <field name="date_from"/>
+                <field name="date_to"/>
+            </tree>
+        </field>
+    </record>
+
+    <menuitem id="menu_hostel_root" name="Hostel" parent="menu_student_root" sequence="110"/>
+    <menuitem id="menu_hostel_room" name="Rooms" parent="menu_hostel_root" action="action_hostel_room"/>
+    <menuitem id="menu_hostel_assignment" name="Assignments" parent="menu_hostel_root" action="action_hostel_assignment"/>
+
+    <record id="action_hostel_room" model="ir.actions.act_window">
+        <field name="name">Rooms</field>
+        <field name="res_model">education.hostel.room</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_hostel_assignment" model="ir.actions.act_window">
+        <field name="name">Assignments</field>
+        <field name="res_model">education.hostel.assignment</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>
